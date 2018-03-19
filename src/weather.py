@@ -6,11 +6,11 @@ import io
 from PIL import Image, ImageTk
 from urllib.request import urlopen
 
-#Gets Weather
-def temperature():
+
+def temperature(event = None):
     error_label.pack()
     error_label.pack_forget()
-    api_key = "your openweather api key"
+    api_key = "9286d1d64052c5ea55e0a13f7eba1d4a"
     try:
         req = requests.get("http://api.openweathermap.org/data/2.5/weather?q=" + city_name.get() + "," + country_code.get() + "&appid=" + api_key)
         tmp = req.json()['main']['temp']
@@ -53,6 +53,7 @@ country_code.focus_set()
 tk.Label(window, text = "Enter City Name", bg='black', fg = 'white').pack(pady = '10')
 city_name = tk.Entry(window, width =  40)
 city_name.pack()
+window.bind('<Return>', temperature)
 weather_label = tk.Label(window, image = "", bg = 'black')
 city_label = tk.Label(window, text = "", font = 'bold', bg='black', fg = 'white')
 c_tmp_label = tk.Label(window, text = "", bg='black', fg = 'white')
