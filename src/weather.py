@@ -10,7 +10,7 @@ from urllib.request import urlopen
 def temperature(event = None):
     error_label.pack()
     error_label.pack_forget()
-    api_key = "9286d1d64052c5ea55e0a13f7eba1d4a"
+    api_key = "Enter Your API Key"
     try:
         req = requests.get("http://api.openweathermap.org/data/2.5/weather?q=" + city_name.get() + "," + country_code.get() + "&appid=" + api_key)
         tmp = req.json()['main']['temp']
